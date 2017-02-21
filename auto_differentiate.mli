@@ -18,5 +18,7 @@ module D : sig
     val ( <= ) : t -> t -> bool
     val ( >= ) : t -> t -> bool
     val ( <> ) : t -> t -> bool
+    val sqrt : t -> t
+    val ( ** ) : t -> float -> t
   end
 end

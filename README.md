@@ -25,7 +25,7 @@ The normal implementation of this would be using:
 ```OCaml
 let f x =
     if x <. 5.
-    then 2. *. x *. x -. 3. *. x +. 5.
+    then 2. *. x ** 2. -. 3. *. x +. 5.
     else 5. /. x +. 39.)
 ```
 
@@ -36,7 +36,7 @@ we only need to update the function as follows:
 let f, f' = D.val_deriv (fun x ->
     let open D.Operators in
     if x < ~$5.
-    then ~$2. * x * x - ~$3. * x + ~$5.
+    then ~$2. * x ** 2. - ~$3. * x + ~$5.
     else ~$5. / x + ~$39.)
 ```
 

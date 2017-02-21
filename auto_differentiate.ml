@@ -38,6 +38,18 @@ module D = struct
 
     let ( <> ) a b =
       Dual.real a <> Dual.real b
+
+    let sqrt a =
+      let arsqrt = sqrt (Dual.real a) in
+      let anr = Dual.non_real a in
+      Dual.from_floats arsqrt (0.5 *. anr /. arsqrt)
+
+    let ( ** ) a b =
+      Dual.from_floats
+        (Dual.real a ** b)
+        (b *. Dual.non_real a *. (Dual.real a ** (b -. 1.)))
+
+
   end
 
 end
